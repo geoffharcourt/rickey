@@ -1,8 +1,7 @@
 # Rickey
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rickey`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Rickey queries MLBAM's servers for information about transactions in Major and
+Minor League Baseball.
 
 ## Installation
 
@@ -22,7 +21,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You specify a date to fetch transactions:
+
+```ruby
+Rickey.new(date: Date.new(2015, 6, 1)).fetch
+```
+
+You can query for minor leagues or rookie ball:
+
+```ruby
+Rickey.new(date: Date.new(2015, 6, 1), sport_code: "aaa").fetch
+```
+
+You can query for a specific team's transactions:
+
+```ruby
+# Cardinals transactions on 6/5/2015
+Rickey.new(date: Date.new(2015, 6, 5), team_id: 138).fetch
+```
 
 ## Development
 
@@ -37,5 +53,8 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 
 ## License
 
+Moneyball is © 2015 Geoff Harcourt. It is free software, and may be redistributed under the terms specified in the LICENSE file.
+
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
 
